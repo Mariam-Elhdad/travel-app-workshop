@@ -12,3 +12,6 @@ def Profile(request):
 
 def Registration(request):
     return(HttpResponse('<h1> Its your registration page </h1>'))   
+
+
+print("hello world")
