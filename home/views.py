@@ -16,18 +16,18 @@ posts = [
     }
 ]
 
-def Home(request):
+def home(request):
     context = {
         'posts': posts
     }
     return render(request, 'home/home.html', context)
     
-def About(request):
+def about(request):
     return render(request, 'home/about.html')
 
 
-def Profile(request):
-    return(HttpResponse('<h1> Its your profile page </h1>'))
+# def Profile(request):
+#     return(HttpResponse('<h1> Its your profile page </h1>'))
 
-def Registration(request):
-    return(HttpResponse('<h1> Its your registration page </h1>'))   
+# def Registration(request):
+#     return(HttpResponse('<h1> Its your registration page </h1>'))   
