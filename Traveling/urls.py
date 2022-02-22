@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+#this file to navigate routes for different applications in the same project
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', include('home.urls')),
+    path('home/', include('home.urls')), #whenever there's a url whis 127.0.01/home -as root-, go to the home apllication and search for the url file => home.url
+                                        #include function ensure it's another application in the same project
 ]
