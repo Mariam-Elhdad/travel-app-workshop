@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'home.apps.HomeConfig', #add this so that django search for templates we made whenever we render the home page
     'users.apps.UsersConfig',
+    'leads.apps.LeadsConfig',#this is an app for the rest framwork
+    'rest_framework',#this is an app for the rest framwork
+    # 'rest_framework_simplejwt',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -123,3 +126,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
