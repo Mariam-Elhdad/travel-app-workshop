@@ -1,6 +1,4 @@
-{% load static %}  <!-- to load static folder in in root dir home for css files, and then call it in the link tag  -->
-<!-- this is ready bootstrap and frontend lines the developer brought-->
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}"> <!-- here we loaded the static file-->
+    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
 
     {% if title %}
         <title>Django Travel - {{ title }}</title>
@@ -24,14 +22,14 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="#">Django Travel</a>
+          <a class="navbar-brand mr-4" href="{% url 'home-home' %}">Django Travel</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'home-travel'%}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'about-travel'%}">About</a>
+              <a class="nav-item nav-link" href="{% url 'home-home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'about-home' %}">About</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -44,7 +42,14 @@
     </header>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8"> <!-- this section to show the flash message if the user successfully loged in  -->
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
