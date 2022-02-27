@@ -25,4 +25,5 @@ urlpatterns = [
                                             #this means any url with empty url then go to the url file for home app
                                             #whenever there's a url whis 127.0.01/ -is the root-, go to the home apllication and search for the url file => url.py
                                             #include function ensure it's another application in the same project
+    path('',include('leads.url')),#we going to spicfy the url endpoint in the leads/urls
 ]
